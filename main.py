@@ -17,6 +17,7 @@ def main() -> None:
     text = EXCUSE.strip()
     assert 1 <= len(text) <= 200, f"entry must be 1-200 chars, got {len(text)}"
     assert text.strip() == text, "entry must not be only whitespace"
+    assert "\n" not in text, "entry must be a single line"
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
         f.write(text)
